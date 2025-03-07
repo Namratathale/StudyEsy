@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<style>
+    body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    /* background: linear-gradient(to right, #3498db, #8e44ad); */
+}
+    .Navbar{
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px;
+}
+.nav-links{
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-links ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+.nav-links a{
+    color: #000000;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+.nav-links a:hover{
+    color: #ffffff;
+}
+.nav-links li{
+    margin-right: 20px;
+    padding: 10px 15px;
+    color: #1760f0;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+}
+.nav-links li:hover {
+    background: linear-gradient(120deg, #3498db, #8e44ad);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    color: #ffffff;
+    border-radius: 5px;
+    transition: background-position 0.5s;
+}
+.line{
+    width: 30px;
+    height: 3px;
+    background: #000000;
+    margin: 5px;
+}
+.hamburger{
+    display: none;
+}
+.subtitle{
+    font-size: 40px;
+    font-weight: 600;
+    color: #052d91;
+    margin: 27px;
+    padding: 20px;
+    text-align: center;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10px;
+}
+.top{
+    flex-basis: 70%;
+    padding: 20px;
+}
+.owl{
+    width: 90%;
+    height: 80%;
+}
+.leftimg, .rightimg{
+    display: none;
+
+ }
+ .headerimg2{
+    display: none;
+ }
+ .header-h1{
+    font-size: 70px;
+    font-weight: 600;
+    color: #052d91;
+    margin-left: 20px;
+}
+ .header-p{
+    font-size: 30px;
+    color: #000000;
+    margin-left: 20px;
+}
+.header button{
+    padding: 15px 25px;
+    background: #1760f0;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 20px;
+    
+}
+.read-more-btn {
+    padding: 10px 20px;
+    background: #1760f0;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.read-more-btn:hover {
+    background: linear-gradient(120deg, #3498db, #8e44ad);
+    color: #ffffff;
+    transform: translateY(-5px);
+    transition: transform 0.3s;
+}
+.header button:hover{
+    background: linear-gradient(120deg, #3498db, #8e44ad);
+    color: #ffffff;
+    /* transform: scale(1.1); */
+    /* transition: transform -0.5s; */
+    transform: translateY(-5px);
+    transition: transform 0.3s;
+}
+.features{
+    padding: 20px 10px;
+    background: #f9f9f9;
+    box-shadow: inner 0 0 10px 0 #000000;
+}
+
+.fe-cards{
+    flex-basis: 23%;
+    padding: 10px;
+    text-align: center;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px 0 #b0dffb;
+    margin: 10px;
+}
+.fe-cards img{
+    width: 60%;
+    height: 60%;
+}
+.fe-cards h1{
+    font-size: 20px;
+    font-weight: 600;
+}
+.fe-cards p{
+    font-size: 16px;
+}
+.fe-cards:hover{
+    transform: translateY(-5px);
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 5px 0 #b0dffb;
+    cursor: pointer;
+}
+ .headerimg, .headerimg2, .joinimg{
+    opacity: 0;
+    transform: translateZ(30px);
+    animation: fadeIn 1.5s ease-in-out forwards;
+
+}
+.join-cards{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+.join-cards2{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+.join-cards text{
+    flex-basis: 50%;
+    padding: 20px;
+}
+#loading-screen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: white; /* Adjust if needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+
+}
+#loading-screen img {
+    width: 100px; /* Adjust the width and height */
+    height: 100px;
+}
+.moveup{
+    background-color: #3498db;
+    padding: 20px 25px;
+    border-radius: 35px;
+    font-weight: bolder;
+    border: 0;
+    box-shadow: 0 0 10px skyblue;
+}
+.moveup:hover{
+    background: linear-gradient(120deg, #3498db, #8e44ad);
+    color: #ffffff;
+    transform: translateY(-5px);
+    transition: transform 0.3s;
+}
+html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@media screen and (max-width: 768px){
+    .nav-links{
+        display: none;
+    }
+    .hamburger{
+        display: block;
+        cursor: pointer;
+    
+}
+.open{
+    display: flex;
+    flex-direction: column;
+    background: #b1e6ff;
+    position: absolute;
+    width: 100%;
+    top: 60px;
+    left: 0;
+}
+.open {
+    background: #b1e6ff;
+    position: absolute;
+    width: 100%;
+    top: 60px;
+    left: 0;
+    text-align: center;
+    padding: 0px 0;
+    z-index: 1;
+}
+.open a:hover{
+    padding: 10px 20px;
+    font-size: 20px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.open ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    
+}
+
+.open ul li {
+    padding: 10px 0;
+    width: 100%;
+    border-bottom: solid 1.5px #8b8989;
+}
+.open ul li:last-child {
+    border-bottom: none;
+}
+.open ul li:hover{
+    background: linear-gradient(120deg, #3498db, #8e44ad);
+    color: #ffffff;
+}
+.header{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 10px;
+    text-align: center;
+}
+.subtitle{
+    font-size: 30px;
+    font-weight: 600;
+    color: #052d91;
+    margin: 27px;
+    padding: 20px;
+    text-align: center;
+}
+.header h1{
+    font-size: 40px;
+    font-weight: 600;
+    color: #052d91;
+}
+.header p{
+    font-size: 20px;
+    color: #000000;
+}
+.owl{
+    width: 50%;
+    height: 50%;
+}
+.headerimg2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.smimg1{
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    z-index: 0;
+}
+.smimg1:hover{
+    transform: rotate(360deg);
+    cursor: pointer;
+    scale: 1.1;
+    transition: transform 0.8s;
+}
+.smimg1:first-child{
+    position: relative;
+    bottom: 35vh;
+    right: 70px;
+    rotate: 30deg;
+}
+.smimg1:nth-child(2){
+    position: relative;
+    bottom: 10vh;
+    right: 30vw;
+}
+.smimg1:nth-child(3){
+    position: relative;
+    right: 20vw;
+    rotate: -30deg;
+}
+.smimg1:nth-child(4){
+    position: relative;
+    bottom: 35vh;
+    left: 25vw;
+    rotate: -20deg;
+}
+
+.fe-cards{
+    flex-basis: 45%;
+}
+.fe-cards img{
+    width: 40%;
+    height: 40%;
+}
+.fe-cards:hover{
+    transform: none;
+    transition: none;
+    box-shadow: 0 0 5px 0 #b0dffb;
+    cursor: pointer;
+}
+.moveup{
+    display: none;
+}
+
+}
+/* .leftimg, .rightimg{
+    display: flex;
+    height: 30%;
+    width: 30%;
+}
+.headerimg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+</style>
+<body>
+    
+    <div id="loading-screen">
+        <img src="loading.gif" alt="Loading..." />
+    </div>
+    <!-- Navbar -->
+    <div class="Navbar">
+        <a href="backgroundfixed.html"><img class="logo" src="fe1.png" alt="logo"></a>
+        
+            <div class="nav-links">
+                <ul>
+                <li><a href="#">Home</a></li>
+                <li> <a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            </div>
+            <!-- hamburger logo -->
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+    </div>
+    </div>
+
+    
+        <!-- top -->
+    <div class="header" style="margin-bottom: 25vh;">
+        <div class="top">
+            <h1 class="header-h1">Your Dreams Our Mission!</h1>    
+            <p class="header-p">An innovative learning platform designed to make education simple, engaging, and accessible. Get started today and unlock endless possibilities for growth and success!"</p>
+            <button>Get Started</button>
+        </div>
+        <div class="headerimg">
+            <img class="leftimg" src="left.webp" alt="leaf">
+            <img class="owl" src="https://cdn.pixabay.com/photo/2014/03/25/16/27/literature-297187_640.png" alt="header">
+            <img class="rightimg" src="left.webp" alt="leaf">
+            <div class="headerimg2">
+            <img class="smimg1" src="1.png" alt="1">
+            <img class="smimg1" src="2.png" alt="2">
+            <img class="smimg1" src="3.png" alt="3">
+            <img class="smimg1" src="4.png" alt="4">
+            <img class="smimg1" src="5.png" alt="5">
+            
+            </div>  
+        </div>
+    </div>
+
+    <!-- Why to Join Us -->
+     <div class="joinus">
+        <hl class="subtitle">Why StudyEsy ?</hl>
+        <div  class="join-cards">
+            <div class="text">
+                <h1>Conceptual clearity throygh visualization</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, atque laboriosam nesciunt ipsa.</p>
+            </div>
+            <div>
+                <img class="joinimg" src="https://cdn1.byjus.com/wp-content/uploads/2022/04/concept-clarity.png" alt="join">
+            </div>
+        </div>
+        <div class="join-cards join-cards2">
+            <div class="text">
+                <h1>Conceptual clearity throygh visualization</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, atque laboriosam nesciunt ipsa.</p>
+            </div>
+            <div">
+                <img src="https://cdn1.byjus.com/wp-content/uploads/2022/04/unmatched-attention.png" alt="join">
+            </div>
+        </div>
+        <div class="join-cards">
+            <div class="text">
+                <h1>Conceptual clearity throygh visualization</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, atque laboriosam nesciunt ipsa.</p>
+            </div>
+            <div>
+                <img src="https://cdn1.byjus.com/wp-content/uploads/2022/04/personalised-learning.png" alt="join">
+            </div>
+        </div>
+        <div>
+        </div>
+     </div>
+
+    <!-- Features -->
+     <div class="features">
+        <hl class="subtitle">Trending Features</hl>
+        <div class="container">
+            <div class="row">
+        <div class="fe-cards" >
+            <img class="img1" src="fe1.png" alt="maths">
+            <h1>Easy Learning</h1>
+            <p>Our platform is designed to make learning simple, engaging, and accessible for all.</p>
+        </div>
+        <div class="fe-cards">
+            <img src="fe1.png" alt="maths">
+            <h1>Easy Learning</h1>
+            <p>Our platform is designed to make learning simple, engaging, and accessible for all.</p>
+        </div>
+        <div class="fe-cards">
+            <img src="fe1.png" alt="maths">
+            <h1>Easy Learning</h1>
+            <p>Our platform is designed to make learning simple, engaging, and accessible for all.</p>
+        </div>
+        <div class="fe-cards">
+            <img src="fe1.png" alt="maths">
+            <h1>Easy Learning</h1>
+            <p>Our platform is designed to make learning simple, engaging, and accessible for all.</p>
+        </div>
+     </div>
+    </div>
+    </div>
+
+    <!-- Available coures -->
+    
+
+    <!-- Feedbacks -->
+    <div class="Feedbacks">
+       <h1 class="subtitle" style="text-align: left;">Feedbacks</h1>
+       <div id="feedbackCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+          <div class="carousel-item active">
+             <div class="d-flex justify-content-around">
+             <div class="fedb-card card shadow-lg p-3 mb-5 bg-body rounded" style="width: 20rem;">
+                <div class="card-body">
+                <h5 class="card-title text-primary">John Doe</h5>
+                <p class="card-text">"This platform has transformed my learning experience. Highly recommended!"</p>
+                </div>
+             </div>
+             <div class="fedb-card card shadow-lg p-3 mb-5 bg-body rounded" style="width: 20rem;">
+                <div class="card-body">
+                <h5 class="card-title text-primary">Jane Smith</h5>
+                <p class="card-text">"The interactive lessons are fantastic. I've learned so much in a short time."</p>
+                </div>
+             </div>
+             <div class="fedb-card card shadow-lg p-3 mb-5 bg-body rounded" style="width: 20rem;">
+                <div class="card-body">
+                <h5 class="card-title text-primary">Alice Johnson</h5>
+                <p class="card-text">"A wonderful platform with great features. It makes learning fun and easy."</p>
+                </div>
+             </div>
+             </div>
+          </div>
+          <div class="carousel-item">
+             <div class="d-flex justify-content-around">
+             <div class="fedb-card card shadow-lg p-3 mb-5 bg-body rounded" style="width: 20rem;">
+                <div class="card-body">
+                <h5 class="card-title text-primary">Michael Brown</h5>
+                <p class="card-text">"The best educational platform I've ever used. Highly effective and engaging."</p>
+                </div>
+             </div>
+             <div class="fedb-card card shadow-lg p-3 mb-5 bg-body rounded" style="width: 20rem;">
+                <div class="card-body">
+                <h5 class="card-title text-primary">Emily Davis</h5>
+                <p class="card-text">"A game-changer in online learning. The courses are well-structured and easy to follow."</p>
+                </div>
+             </div>
+             <div class="fedb-card card shadow-lg p-3 mb-5 bg-body rounded" style="width: 20rem;">
+                <div class="card-body">
+                <h5 class="card-title text-primary">Chris Wilson</h5>
+                <p class="card-text">"I love the interactive features and the personalized learning experience."</p>
+                </div>
+             </div>
+             </div>
+          </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#feedbackCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#feedbackCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+          </button>
+       </div>
+    </div>
+
+    <footer style="background-color: #bddeff; padding: 20px; display: flex; justify-content: space-between; ">
+    <div>
+        <h3>Contact Us</h3>
+        <p>Email: support@example.com</p>
+        <p>Phone: (123) 456-7890</p>
+        <p>Address: 123 Main St, City, Country</p>
+    </div>
+    <div>
+        <h4>Quick Links</h4>
+        <ul style="list-style-type: none; padding: 0;">
+            <li><a href="/about" style="text-decoration: none; color: #007bff;">About Us</a></li>
+            <li><a href="/services" style="text-decoration: none; color: #007bff;">Services</a></li>
+            <li><a href="/faq" style="text-decoration: none; color: #007bff;">FAQ</a></li>
+            <li><a href="/privacy-policy" style="text-decoration: none; color: #007bff;">Privacy Policy</a></li>
+            <li><a href="/terms-of-service" style="text-decoration: none; color: #007bff;">Terms of Service</a></li>
+        </ul>
+    </div>
+    <div style="margin-top: 20px;">
+        <a href="#"><button class="moveup" >↑</button></a>
+        <p>&copy; 2023 Company Name. All rights reserved.</p>
+    </div>
+</footer>
+
+    <script>
+        // nav links to the hamburger
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+
+        
+
+    </script>
+    <script>
+        window.onload = function () {
+            setTimeout(() => {
+                document.getElementById("loading-screen").style.display = "none";
+            }, 1000); // 3000ms = 3 seconds
+        };
+    </script>
+
+</body>
+</html>
